@@ -7,7 +7,7 @@ import axios from '../../utils/axios';
 import { useParams } from 'react-router';
 import { AuthContext } from "../../context/AuthContext";
 
-const PF = 'http://localhost:4000/api/images/';
+const PF = 'https://social-1-l0tk.onrender.com/api/images/';
 function Profile() {
   const [user, setUser] = useState({});
   const [file, setFile] = useState(null);
