@@ -7,8 +7,7 @@ import axios from '../../utils/axios';
 import { useParams } from 'react-router';
 import { AuthContext } from "../../context/AuthContext";
 
-const PF = '/api/images/';
-
+const PF = 'http://localhost:4000/api/images/';
 function Profile() {
   const [user, setUser] = useState({});
   const [file, setFile] = useState(null);

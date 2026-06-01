@@ -14,7 +14,7 @@ const fs = require('fs');
 const uploadImage = require('./lib/upload');
 const verifyToken = require('./middleware/auth');
 
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.PORT || 4000;
 
 
 const app=express();

@@ -48,23 +48,33 @@ function Rightbar({ user }) {
       setIsFollowed(!isFollowed);
     }
 
-    useEffect(() => {
-      const fetchFriends = async () => {
-        try {
-          const friend = await axios.get('/api/users/friends/' + user._id);
-          setFriends(friend.data);
-          setLoad(false);
-        } catch (err) {
-          console.log(err);
-        }
-      };
-      fetchFriends();
-    }, [user._id]);
+  useEffect(() => {
+
+  if (!user || !user._id) return;
+
+  const fetchFriends = async () => {
+    try {
+      const friend = await axios.get('/api/users/friends/' + user._id);
+      setFriends(friend.data);
+      setLoad(false);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  fetchFriends();
+
+}, [user]);
 
     useEffect(() => {
-      setIsFollowed(cuser.followings?.includes(user._id));
-    }, [user._id, cuser.followings]);
 
+  if (!user || !cuser) return;
+
+  setIsFollowed(
+    cuser.followings?.includes(user._id)
+  );
+
+}, [user, cuser]);
     useEffect(() => {
       setAge(cuser.age);
       setRelationship(cuser.relationship);
